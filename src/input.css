@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .content {
-  font-family: 'Calluna Sans', sans-serif;
+  font-family: 'calluna-sans', sans-serif;
   color: #171C1C;
   background-color: #fafafa;
   font-variant-numeric: lining-nums;
