@@ -674,42 +674,51 @@ aside {
   background-color: #F0F0F0;
   padding: 1.5rem;
   margin: 3rem 0;
-  h3 {
-    margin-top: 0;
-    text-transform: uppercase;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    font-size: 16px;
-    opacity: 0.7;
+}
+
+aside h3 {
+  margin-top: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  opacity: 0.7;
+}
+
+aside p:last-child {
+  margin-bottom: 0;
+}
+
+aside table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+aside th {
+  vertical-align: top;
+  text-align: left;
+  font-weight: 600;
+  width: 16px;
+}
+
+@media (max-width: 767px) {
+  aside th {
+    writing-mode: vertical-lr;
   }
-  p:last-child {
-    margin-bottom: 0;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  th {
-    vertical-align: top;
-    text-align: left;
-    font-weight: 600;
-    width: 16px;
-  }
-  @media (max-width: 767px) {
-    th {
-      writing-mode: vertical-lr;
-    }
-  }
-  td {
-    font-weight: 500;
-    width: 21px;
-  }
-  td:not(.hide-border) {
-    border: 1px solid #DBDBDB;
-  }
-  th, td {
-    padding: 0.25rem;
-  }
+}
+
+aside td {
+  font-weight: 500;
+  width: 21px;
+}
+
+aside td:not(.hide-border) {
+  border: 1px solid #DBDBDB;
+}
+
+aside th,
+  aside td {
+  padding: 0.25rem;
 }
 
 .credits {
@@ -718,20 +727,23 @@ aside {
   color: #5A5D5D;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  .credit {
-    margin: 0 auto;
-    font-size: 0.875rem;
-  }
-  .credit:first-of-type {
-    margin-bottom: 0.25rem;
-  }
-  .credit-name {
-    color: #121717;
-    font-weight: 600;
-  }
 }
 
-.drop-cap {
+.credits .credit {
+  margin: 0 auto;
+  font-size: 0.875rem;
+}
+
+.credits  .credit:first-of-type {
+  margin-bottom: 0.25rem;
+}
+
+.credits .credit-name {
+  color: #121717;
+  font-weight: 600;
+}
+
+.credits .drop-cap {
   display: block;
   float: left;
   font-size: 4rem;
