@@ -559,6 +559,7 @@
 
       if(div) {
         var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(div, {
+          backend: "canvas",
           autoResize: true,
         });
 
@@ -579,9 +580,9 @@
               osmd.EngravingRules.RenderTimeSignatures = timeSig;
               osmd.EngravingRules.RenderMeasureNumbers = false;
               osmd.Zoom = 0.75
-              osmd.EngravingRules.DefaultFontFamily = "inherit";
+              osmd.EngravingRules.DefaultFontFamily = "calluna-sans";
               osmd.EngravingRules.RenderTitle = false;
-              osmd.EngravingRules.applyDefaultColorMusic("currentColor");
+              osmd.EngravingRules.applyDefaultColorMusic("#121717");
               osmd.render();
             });
           });
