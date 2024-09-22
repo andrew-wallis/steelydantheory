@@ -6,6 +6,7 @@
   <title>Babylon Sisters</title>
   <link rel="stylesheet" href="src/output.css">
   <link rel="stylesheet" href="https://use.typekit.net/wgi2koo.css">
+  <link rel="stylesheet" href="https://use.typekit.net/opm5muz.css">
 </head>
 <body class="mt-12 mb-24 mx-auto px-4 max-w-screen-md content">
 
@@ -580,7 +581,7 @@
               osmd.EngravingRules.RenderTimeSignatures = timeSig;
               osmd.EngravingRules.RenderMeasureNumbers = false;
               osmd.Zoom = 0.75
-              osmd.EngravingRules.DefaultFontFamily = "calluna-sans";
+              osmd.EngravingRules.DefaultFontFamily = "trade-gothic-next";
               osmd.EngravingRules.RenderTitle = false;
               osmd.EngravingRules.applyDefaultColorMusic("#121717");
               osmd.render();
