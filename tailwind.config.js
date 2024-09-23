@@ -11,7 +11,7 @@ module.exports = {
   ],
   theme: {
     fontFamily : {
-      sans: ['Inter', 'sans-serif'],
+      sans: ['neue-haas-unica', 'sans-serif'],
       display: ['itc-avant-garde-gothic-pro', 'sans-serif']
     },
     extend: {
