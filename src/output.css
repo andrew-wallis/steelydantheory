@@ -633,8 +633,13 @@ table {
   counter-increment: list-counter;
 }
 
+.contents-menu .inactive {
+  opacity: 0.6;
+}
+
 .content p, 
-  .content ul {
+  .content ul,
+  .content blockquote {
   font-size: 16px;
   line-height: 26px;
   max-width: 640px;
@@ -653,6 +658,11 @@ table {
 .content ul {
   list-style-type: disc;
   padding-left: 2rem;
+}
+
+.content blockquote {
+  margin-left: 1.5rem;
+  font-style: italic;
 }
 
 .content h2 {
@@ -798,6 +808,10 @@ table {
 
 .table {
   display: table;
+}
+
+.contents {
+  display: contents;
 }
 
 .h-full {
