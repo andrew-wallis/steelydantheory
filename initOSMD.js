@@ -58,7 +58,7 @@ window.onload = function() {
           osmd.EngravingRules.RenderTimeSignatures = timeSig;
           osmd.EngravingRules.RenderMeasureNumbers = false;
           osmd.Zoom = 0.75
-          osmd.EngravingRules.DefaultFontFamily = "Inter";
+          osmd.EngravingRules.DefaultFontFamily = "neue-haas-unica";
           osmd.EngravingRules.RenderTitle = false;
           osmd.EngravingRules.applyDefaultColorMusic("#121717");
           osmd.render();
