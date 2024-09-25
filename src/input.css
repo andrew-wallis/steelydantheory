@@ -15,7 +15,8 @@
     @apply font-semibold;
   }
 
-  em > em {
+  em > em,
+  blockquote > em {
     @apply not-italic;
   }
 
@@ -112,7 +113,7 @@
     @apply font-medium;
     @apply mt-12;
     @apply pt-12;
-    @apply mb-16;
+    @apply mb-8;
     @apply pb-4;
     @apply border-b;
     @apply border-gray-20;
@@ -176,12 +177,6 @@
     @apply font-medium;
     @apply w-4;
   }
-
-  @media (max-width: 767px) {
-    .content aside th {
-      writing-mode: vertical-lr;
-    }
-  }
     
   .content aside td {
     @apply w-5;
@@ -195,6 +190,39 @@
   .content aside th,
   .content aside td {
     @apply p-1;
+  }
+
+  @media (max-width: 767px) {
+    .content aside table, 
+    .content aside thead, 
+    .content aside tbody{
+      @apply block;
+    }
+
+    .content aside tr {
+      @apply block;
+      @apply grid;
+      @apply grid-cols-4;
+    }
+
+    .content aside th {
+      @apply block;
+      @apply w-full;
+      @apply col-span-4;
+      @apply mt-4;
+      @apply mb-2;
+    }
+
+    .content aside td {
+      @apply block;
+      @apply w-full;
+    }
+
+    .content aside td:not(.hide-border) {
+      @apply border;
+      @apply border-gray-5;
+      @apply bg-white;
+    }
   }
 
   .example {

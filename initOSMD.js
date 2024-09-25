@@ -37,16 +37,17 @@ window.onload = function() {
     const divId = "osmd-" + fileName;
     const div = document.getElementById(divId);
 
-  if(div) {
-    var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(div, {
-      backend: "canvas",
-      autoResize: true,
-    });
+    if(div) {
+      var osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(div, {
+        backend: "canvas",
+        autoResize: true,
+      });
 
-    const partNames = (fileName === "BSIntro1") ? true : false; 
-    const timeSig = (fileName === "BSIntro1") ? true : false; 
+      const partNames = (fileName === "BSIntro1") ? true : false; 
+      const timeSig = (fileName === "BSIntro1") ? true : false; 
+      const zoom = (window.innerWidth > 767) ? 0.75 : 0.5;
 
-    fetch('musicxml/' + fileName + '.musicxml')
+      fetch('musicxml/' + fileName + '.musicxml')
       .then(response => response.text())
       .then(data => {
         osmd.load(data).then(() => {
@@ -57,7 +58,7 @@ window.onload = function() {
           osmd.EngravingRules.RenderPartNames = partNames;
           osmd.EngravingRules.RenderTimeSignatures = timeSig;
           osmd.EngravingRules.RenderMeasureNumbers = false;
-          osmd.Zoom = 0.75
+          osmd.Zoom = zoom;
           osmd.EngravingRules.DefaultFontFamily = "neue-haas-unica";
           osmd.EngravingRules.RenderTitle = false;
           osmd.EngravingRules.applyDefaultColorMusic("#121717");
@@ -66,7 +67,4 @@ window.onload = function() {
       });
     }
   });
-
-
-
 }
