@@ -78,8 +78,12 @@
     counter-increment: list-counter;
   }
 
-  .contents-menu .inactive {
+  .contents-menu a {
     @apply opacity-60;
+  }
+
+  .contents-menu a.active {
+    @apply opacity-100;
   }
 
   .content p, 

@@ -634,8 +634,12 @@ table {
   counter-increment: list-counter;
 }
 
-.contents-menu .inactive {
+.contents-menu a {
   opacity: 0.6;
+}
+
+.contents-menu a.active {
+  opacity: 1;
 }
 
 .content p, 

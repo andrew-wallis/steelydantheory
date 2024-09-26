@@ -1,64 +1,55 @@
-const contents = document.getElementById("contents");
-const menuLinks = contents.querySelectorAll('li > a');
+document.addEventListener("DOMContentLoaded", function() {
+  const contentsMenu = document.querySelector("#contents");
+  const links = contentsMenu.querySelectorAll("a");
+  const sections = Array.from(links).map(link => document.querySelector(link.getAttribute("href")));
+  let sectionPositions = [];
 
-const getHeadingHeights = () => {
-
-  const returnHeadings = [];
-  const getHeadings = document.querySelectorAll('h2[id^="part-"]');
-
-  getHeadings.forEach(function(heading) {       
-
-    const headingObj = {};
-    headingObj["id"] = heading.id;
-
-    const rect = heading.getBoundingClientRect();
-    const yPos = rect.top + window.scrollY;
-    headingObj["pos"] = yPos;
-
-    returnHeadings.push(headingObj);
-  });
-
-  return returnHeadings;
-};
-
-const updateActiveLink = () => {
-  const html = document.documentElement;
-  const scrollTop = html.scrollTop || document.body.scrollTop;
-  let activeSection = '';
-
-  for (let i = headings.length - 1; i >=0; i--) {
-    if(scrollTop >= headings[i].pos -1 ) {
-      activeSection = headings[i].id;
-      break;
-    }
+  function calculatePositions() {
+    sectionPositions = sections.map(section => section.offsetTop);
   }
-  
-  menuLinks.forEach(function(link) {
-    if(activeSection && !link.href.includes(activeSection)) {
-      link.classList.add("inactive")
+
+  function highlightCurrentSection() {
+    const scrollPosition = window.scrollY;
+    if (scrollPosition < sectionPositions[0]) {
+      // If scroll position is before the first H2
+      links.forEach(link => link.classList.add("active"));
     } else {
-      link.classList.remove("inactive");
+      // Highlight the section that is at the top of the viewport
+      let index = sectionPositions.findIndex(position => scrollPosition < position) - 1;
+      if (index < 0) index = sections.length - 1; // Highlight last item if we scrolled past the last section
+      
+      links.forEach(link => link.classList.remove("active"));
+      if (index >= 0) {
+        links[index].classList.add("active");
+      }
     }
-  });
-
-  if(scrollTop < headings[0]) {
-    menuLinks.forEach(function(link) {
-      link.classList.remove("inactive");
-    })
   }
-};
 
-let headings = getHeadingHeights();
+  function onScroll() {
+    highlightCurrentSection();
+  }
 
-window.addEventListener("load", () => {
-  headings = getHeadingHeights();
-  updateActiveLink();
+  function onResize() {
+    calculatePositions();
+    highlightCurrentSection();
+  }
+
+  function onClick(event) {
+    links.forEach(link => link.classList.remove("active"));
+    event.target.classList.add("active");
+  }
+
+  // Ensure positions are calculated after canvas elements are loaded
+  window.addEventListener("load", calculatePositions);
+  window.addEventListener("resize", onResize);
+  window.addEventListener("scroll", onScroll);
+
+  // Attach click event listeners to links
+  links.forEach(link => link.addEventListener("click", onClick));
+
+  // Initial calculation
+  calculatePositions();
+  
+  console.log(sectionPositions);
+  highlightCurrentSection();
 });
-
-window.addEventListener("resize", () => {
-  headings = getHeadingHeights();
-  updateActiveLink();
-});
-
-window.addEventListener("scroll", updateActiveLink);
-
