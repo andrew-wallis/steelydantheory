@@ -49,7 +49,5 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Initial calculation
   calculatePositions();
-  
-  console.log(sectionPositions);
   highlightCurrentSection();
 });
